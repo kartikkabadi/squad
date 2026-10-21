@@ -52,7 +52,7 @@ Module._resolveFilename = function (request: string, parent: unknown, isMain: bo
   return _origResolveFilename.call(this, request, parent, isMain, options);
 };
 
-// Pre-flight: require Node.js ≥22.5.0 for node:sqlite (#214, #502).
+// Pre-flight: require Node.js ≥22.12.0 for the Copilot SDK and node:sqlite (#214, #502).
 // node:sqlite is used by the Copilot SDK for session storage.
 // Fail fast with a clear message rather than letting users hit a cryptic
 // ERR_UNKNOWN_BUILTIN_MODULE crash when the SDK loads.
@@ -60,10 +60,10 @@ Module._resolveFilename = function (request: string, parent: unknown, isMain: bo
   const parts = process.versions.node.split('.').map(Number);
   const major = parts[0] ?? 0;
   const minor = parts[1] ?? 0;
-  if (major < 22 || (major === 22 && minor < 5)) {
+  if (major < 22 || (major === 22 && minor < 12)) {
     console.error(
-      `✗ Squad requires Node.js ≥22.5.0 (you have v${process.versions.node}).\n` +
-      `  node:sqlite (required by the Copilot SDK for session storage) was added in Node 22.5.0.\n` +
+      `✗ Squad requires Node.js ≥22.12.0 (you have v${process.versions.node}).\n` +
+      `  The Copilot SDK requires Node.js 22.12.0 or newer for session storage.\n` +
       `  Upgrade at: https://nodejs.org/en/download\n`,
     );
     process.exit(1);

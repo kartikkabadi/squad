@@ -118,7 +118,7 @@ export function getInstallInstructions(env: CopilotEnvironment): InstallStep[] {
     case 'unknown':
     default:
       return [
-        { description: 'Install Node.js 20+ if not already installed' },
+        { description: 'Install Node.js 22.12+ if not already installed' },
         { description: 'Install the Squad SDK', command: 'npm install @bradygaster/squad' },
         { description: 'Initialise a new Squad project', command: 'npx create-squad' },
       ];

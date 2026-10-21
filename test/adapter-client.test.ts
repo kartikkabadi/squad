@@ -488,6 +488,17 @@ describe('SquadClient — Status Operations', () => {
     expect(models[0].id).toBe('claude-sonnet-4.5');
   });
 
+  it('normalizes upstream max reasoning effort to the existing xhigh alias', async () => {
+    const client = new SquadClient();
+    await client.connect();
+    const MockedCopilotClient = CopilotClient as unknown as ReturnType<typeof vi.fn>;
+    const instance = MockedCopilotClient.mock.results[0].value;
+    instance.listModels.mockResolvedValue([{ id: 'test-model', name: 'Test', supportedReasoningEfforts: ['low', 'max'], defaultReasoningEffort: 'max' }]);
+    const models = await client.listModels();
+    expect(models[0].supportedReasoningEfforts).toEqual(['low', 'xhigh']);
+    expect(models[0].defaultReasoningEffort).toBe('xhigh');
+  });
+
   it('should throw when calling operations while disconnected', async () => {
     const client = new SquadClient();
 

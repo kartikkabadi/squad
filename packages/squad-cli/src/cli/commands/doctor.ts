@@ -320,7 +320,7 @@ function formatAge(seconds: number): string {
 // ── environment checks ─────────────────────────────────────────────
 
 /**
- * Check that Node.js is ≥22.5.0 for node:sqlite availability.
+ * Check that Node.js is ≥22.12.0 for node:sqlite availability.
  * Accepts an optional version string for testing.
  */
 export function checkNodeVersion(nodeVersion?: string): DoctorCheck {
@@ -328,13 +328,13 @@ export function checkNodeVersion(nodeVersion?: string): DoctorCheck {
   const parts = version.split('.').map(Number);
   const major = parts[0] ?? 0;
   const minor = parts[1] ?? 0;
-  const ok = major > 22 || (major === 22 && minor >= 5);
+  const ok = major > 22 || (major === 22 && minor >= 12);
   return {
-    name: 'Node.js ≥22.5.0 (node:sqlite)',
+    name: 'Node.js ≥22.12.0 (Copilot SDK / node:sqlite)',
     status: ok ? 'pass' : 'fail',
     message: ok
       ? `v${version} — node:sqlite available`
-      : `v${version} — node:sqlite requires ≥22.5.0. Upgrade at https://nodejs.org/en/download`,
+      : `v${version} — Copilot SDK requires ≥22.12.0. Upgrade at https://nodejs.org/en/download`,
   };
 }
 
