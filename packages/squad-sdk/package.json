@@ -234,7 +234,7 @@
     "build": "tsc -p tsconfig.json && node -e \"const{rmSync,cpSync}=require('fs');rmSync('dist/presets/builtin',{recursive:true,force:true});cpSync('src/presets/builtin','dist/presets/builtin',{recursive:true,filter:(s)=>!s.endsWith('.ts')})\""
   },
   "engines": {
-    "node": ">=22.5.0"
+    "node": ">=22.12.0"
   },
   "dependencies": {
     "@github/copilot-sdk": "^1.0.4",
@@ -242,11 +242,11 @@
   },
   "optionalDependencies": {
     "@opentelemetry/api": "^1.9.0",
-    "@opentelemetry/exporter-metrics-otlp-grpc": "^0.219.0",
-    "@opentelemetry/exporter-trace-otlp-grpc": "^0.219.0",
+    "@opentelemetry/exporter-metrics-otlp-grpc": "^0.223.0",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0.223.0",
     "@opentelemetry/resources": "^2.8.0",
     "@opentelemetry/sdk-metrics": "^2.8.0",
-    "@opentelemetry/sdk-node": "^0.219.0",
+    "@opentelemetry/sdk-node": "^0.223.0",
     "@opentelemetry/sdk-trace-base": "^2.8.0",
     "@opentelemetry/sdk-trace-node": "^2.8.0",
     "@opentelemetry/semantic-conventions": "^1.28.0",

@@ -527,7 +527,7 @@ For SDK installation: `npm install @bradygaster/squad-sdk`
 
 ## Requirements
 
-- **Node.js** ≥22.5.0
+- **Node.js** ≥22.12.0
 - **npm** ≥10.0.0
 - **Git** with SSH agent
 - **GitHub CLI** (`gh`) for GitHub integration

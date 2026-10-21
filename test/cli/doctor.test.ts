@@ -107,27 +107,27 @@ describe('squad doctor', () => {
     const checks = await runDoctor(TEST_ROOT);
     const nodeCheck = checks.find((c: DoctorCheck) => c.name.includes('node:sqlite'));
     expect(nodeCheck).toBeDefined();
-    // Tests run on Node >= 22.5.0 — should always pass in CI
+    // Tests run on Node >= 22.12.0 — should always pass in CI
     expect(nodeCheck?.status).toBe('pass');
   });
 
-  it('checkNodeVersion returns fail for Node <22.5.0', () => {
+  it('checkNodeVersion returns fail for Node <22.12.0', () => {
     const result = checkNodeVersion('20.18.0');
     expect(result.status).toBe('fail');
-    expect(result.message).toContain('22.5.0');
+    expect(result.message).toContain('22.12.0');
     expect(result.message).toContain('nodejs.org');
   });
 
-  it('checkNodeVersion returns fail for Node 22.4.x', () => {
-    const result = checkNodeVersion('22.4.0');
+  it('checkNodeVersion returns fail for Node 22.11.x', () => {
+    const result = checkNodeVersion('22.11.0');
     expect(result.status).toBe('fail');
-    expect(result.message).toContain('22.5.0');
+    expect(result.message).toContain('22.12.0');
   });
 
-  it('checkNodeVersion returns pass for Node 22.5.0', () => {
-    const result = checkNodeVersion('22.5.0');
+  it('checkNodeVersion returns pass for Node 22.12.0', () => {
+    const result = checkNodeVersion('22.12.0');
     expect(result.status).toBe('pass');
-    expect(result.message).toContain('22.5.0');
+    expect(result.message).toContain('22.12.0');
   });
 
   it('checkNodeVersion returns pass for Node 24.x', () => {

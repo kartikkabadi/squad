@@ -762,8 +762,8 @@ export class SquadClient {
         capabilities: m.capabilities,
         policy: m.policy,
         billing: m.billing,
-        supportedReasoningEfforts: m.supportedReasoningEfforts,
-        defaultReasoningEffort: m.defaultReasoningEffort,
+        supportedReasoningEfforts: m.supportedReasoningEfforts?.map((effort) => effort === 'max' ? 'xhigh' : effort),
+        defaultReasoningEffort: m.defaultReasoningEffort === 'max' ? 'xhigh' : m.defaultReasoningEffort,
         // Infer context-tier support from billing: models that publish a
         // long-context token-price schedule support the 1M window. The
         // runtime does not expose supported tiers directly, so presence of

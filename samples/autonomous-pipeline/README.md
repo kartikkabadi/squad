@@ -4,9 +4,11 @@ Showcase sample that demonstrates a complete autonomous multi-agent development 
 
 ## Prerequisites
 
-- Node.js >= 20.0.0
+- Node.js >= 22.12.0
 - npm
 - TypeScript >= 5.0
+
+This sample uses the SDK from this repository. From the repository root, run `npm ci` and `npm run build` before installing or running the sample.
 
 ## Quick start
 

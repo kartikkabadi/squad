@@ -4,9 +4,11 @@ Demonstrates how the Squad SDK selects response tiers based on task complexity, 
 
 ## Prerequisites
 
-- Node.js >= 20
+- Node.js >= 22.12.0
 - npm
 - The SDK must be built first: `cd ../../ && npm run build`
+
+This sample uses the SDK from this repository. From the repository root, run `npm ci` and `npm run build` before installing or running the sample.
 
 ## Quick start
 

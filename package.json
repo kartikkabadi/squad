@@ -13,7 +13,8 @@
   "overrides": {
     "@bradygaster/squad-cli": {
       "@bradygaster/squad-sdk": "$@bradygaster/squad-sdk"
-    }
+    },
+    "katex": "0.18.2"
   },
   "scripts": {
     "prebuild": "node scripts/bump-build.mjs && node scripts/sync-skill-templates.mjs && node scripts/sync-templates.mjs",
@@ -36,7 +37,7 @@
     "docs:preview": "cd docs && npm run preview"
   },
   "engines": {
-    "node": ">=22.5.0"
+    "node": ">=22.12.0"
   },
   "devDependencies": {
     "@opentelemetry/api": "^1.9.0",
@@ -46,15 +47,15 @@
     "@playwright/test": "^1.61.0",
     "@typescript-eslint/eslint-plugin": "^8.61.1",
     "@typescript-eslint/parser": "^8.61.1",
-    "@vitest/coverage-v8": "^4.1.9",
+    "@vitest/coverage-v8": "^4.1.11",
     "cspell": "^10.0.1",
     "eslint": "^10.5.0",
     "eslint-plugin-n": "^18.1.0",
     "highlight.js": "^11.11.1",
-    "markdown-it": "^14.2.0",
-    "markdownlint-cli2": "^0.22.1",
+    "markdown-it": "^14.3.3",
+    "markdownlint-cli2": "^0.24.0",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.11"
   },
   "keywords": [
     "copilot",
